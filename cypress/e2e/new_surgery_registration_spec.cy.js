@@ -39,9 +39,6 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         cy.contains("FIND HAI").click().wait(8000)
         cy.contains('SURGERIES').click()
         cy.contains("Register new surgery").click()
-        //cy.get('#LXSQGQvSQGf').click().get('.ant-select-item ant-select-item-option ant-select-item-option-active').contains("Elective").click()
-        //cy.get(':nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector').dblclick().focused().type('Elective{enter}')
-        
         const PatID = () => Cypress._.random(0, 1e6);
         const patclinicNo=PatID();
         cy.get('#US1gCMCXtGq').type(`PAT-${patclinicNo}`,'{enter}')
@@ -49,42 +46,158 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         cy.get('#GhX9ASUscsM').type(middleName)
         cy.get('#cNBoqe3kM9F').type(familyName)
 
-        cy.get('#O9xFVVDAqsL').click().dblclick().focused().get('[title="Male"] > .ant-select-item-option-content').click()//.get('Female{enter}').clcik
-        cy.get('#Y4bglcLiAGx').click().focused().get('.ant-picker-year-btn').dblclick().get('tbody > :nth-child(1) > :nth-child(1)').click().get('[title="1999"]').click().get('[title="1999-10"]').click().get('[title="1999-10-20"]').click()//.get('.ant-picker-cell-selected').click().get('[title="2020"]').click().get('[title="2020-08"]').click().get('[title="2020-08-23"]').click()
-        cy.get('#dtgA3a71Htu').dblclick().focused().get(':nth-child(6) > .ant-picker-dropdown > .ant-picker-panel-container > .ant-picker-panel-layout > .ant-picker-panel > .ant-picker-date-panel > .ant-picker-header > .ant-picker-header-prev-btn').click().get('[title="2023-10-21"]').click()
-        cy.get('#Ogx5pUkCK7Y').click().focused().get(':nth-child(7) > .ant-picker-dropdown > .ant-picker-panel-container > .ant-picker-panel-layout > .ant-picker-panel > .ant-picker-date-panel > .ant-picker-header > .ant-picker-header-prev-btn').click().get(':nth-child(7) > .ant-picker-dropdown > .ant-picker-panel-container > .ant-picker-panel-layout > .ant-picker-panel > .ant-picker-date-panel > .ant-picker-body > .ant-picker-content > tbody > :nth-child(4) > [title="2023-10-25"]').click()
-        cy.get('#u2mZ7WXhjHt').click().dblclick().focused().type('Joint fusion surgery{enter}')//ORIF{enter}')
-        cy.get('#LXSQGQvSQGf').click().focused().type('Elective{enter}')
-      //  cy.get('#gabeOfZprya').click().focused().get(':nth-child(8) > .ant-picker-dropdown > .ant-picker-panel-container > .ant-picker-panel-layout > .ant-picker-panel > .ant-picker-date-panel > .ant-picker-header > .ant-picker-header-prev-btn').click().get('.ant-picker-year-btn').click().get('tbody > :nth-child(1) > :nth-child(1)').click().get('[title="2023"]').click().get('[title="2023-11"]').click().get('[title="2023-11-03"]').click()
-        cy.get('#JwuMPx8ZPLD').click().dblclick().focused().type('Orthopedic ward{enter}')
-        //cy.get(':nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector').dblclick().focused().type('Elective{enter}')
-        cy.get('.ant-btn').click().wait(500)
-        cy.get(':nth-child(7) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').click()
-        cy.get(':nth-child(7) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').dblclick().wait(8000)//.focused().get('#GwyYVvRrUNZ_0_HmKL3kmI0nA').type('Diabetes{enter}').get(':nth-child(1) > .form-0-2-46 > .submit-0-2-52 > .ant-row > .ant-col > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-btn > :nth-child(2)').dblclick().focused().get('#GwyYVvRrUNZ_1_HmKL3kmI0nA').type('Hypertension{enter}')
-        cy.get('#gSLwOiqPEZV > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        cy.get('#QZ5OuqX5bOD').type('70ml')
-        cy.get('#XR6fQIfS2PN').type('Insulin')
-        cy.get('#APa12HlIW93 > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        cy.get('#R702RDI0tN4 > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        cy.get('#pNJpQOp13TO').click().focused().type('Clippers{enter}')
-        cy.get('#B5DNAjWwqPR').click().focused().get('.ant-picker-header-prev-btn').click().get('[title="2023-10-21"]').click()
-        cy.get('#x6694BaUWAf > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        cy.get('#HPXcpqKqO2l > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        cy.get('#NmF0oDbjTyN > :nth-child(2) > .ant-radio > .ant-radio-input').check()
-        cy.get('#EIIPKnALf0H > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        cy.get('#L14g5KntcbA > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        cy.get('#izLgahalz9Q').click().focused().type('Skin graft{enter}')
-        cy.get('#gydMsXA6Ia0 > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        cy.get('#WgtOPrLLQh1').type('skin{enter}')
-        cy.get('#ai7zInO9MSH > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        cy.get('#FUMk5Tm7Nqd > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        cy.get(':nth-child(6) > .form-0-2-46 > .ant-form-item > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #HmKL3kmI0nA').click().focused().type('Hypertension{enter}')
-        cy.get(':nth-child(11) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #n78ALDPo3ym').click().focused().get('[title=">2 min - 3 min"] > .ant-select-item-option-content').click()
-        //cy.get(':nth-child(12) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #n78ALDPo3ym').click().focused().type('')
-        cy.get(':nth-child(16) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #TMfPGD5aJHQ').click().focused().type('Cefazolin')
-        cy.get(':nth-child(17) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #TMfPGD5aJHQ').click().type('Cefazolin{enter}')
-        cy.get(':nth-child(21) > .form-0-2-46 > :nth-child(2) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #OEvr8vNqbQg').type('Prophylaxis{enter}')
-        cy.get('.submitButton-0-2-47').click()
+        const gender = [
+          "Female",
+          "Male"
+          ];
+
+        const randomPress = Math.floor(Math.random() * 2) + 1;
+        const dropdown1 = cy.get('#O9xFVVDAqsL');
+
+            for (let i = 0; i < randomPress; i++) {
+              dropdown1.type('{downarrow}');
+            }
+
+            dropdown1.type('{enter}');
+
+        
+        function randomDate(start, end) {
+        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+      }
+
+      const randomBirthday = randomDate(new Date(1940, 0, 1), new Date(2023, 0, 1));
+      const formattedBirthday = randomBirthday.toISOString().split('T')[0];
+
+
+      cy.get('#Y4bglcLiAGx').click().type(formattedBirthday).type('{enter}');
+
+      function admissionDate(start, end) {
+        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+      }
+
+      const randomAdmission = randomDate(new Date(2023, 0, 1), new Date(2023, 10, 31));
+      const formattedAdmission = randomAdmission.toISOString().split('T')[0];
+
+      cy.get('#dtgA3a71Htu').click().type(formattedAdmission).type('{enter}');
+
+      function surgeryDate(start, end) {
+        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+      }
+
+      const randomSurgeryDate = randomDate(new Date(2023, 10, 1), new Date(2023, 11, 31));
+      const formattedSurgery = randomSurgeryDate.toISOString().split('T')[0];
+
+      cy.get('#Ogx5pUkCK7Y').click().type(formattedSurgery).type('{enter}');
+
+         const surgicalProcedure= [
+           "ACL reconstruction surgery",
+           "Ankle repair",
+           "Hip replacement",
+           "Joint arthroscopy",
+           "Joint fusion surgery",
+           "Knee replacement",
+           "ORIF",
+           "Shoulder replacement surgery",
+           "Spinal surgery",
+           "Other(specify)"
+         ];
+         const randomProcedure = Math.floor(Math.random() * surgicalProcedure.length);
+         const randomSurgery = surgicalProcedure[randomProcedure];
+
+
+            const randomPresser = Math.floor(Math.random() * 10) + 1;
+            const dropdown = cy.get('#u2mZ7WXhjHt');
+
+            for (let i = 0; i < randomPresser; i++) {
+              dropdown.type('{downarrow}');
+            }
+
+            dropdown.type('{enter}');
+
+
+         const scheduling = [
+          "Elective",
+          "Emergency"
+         ]
+
+
+        const randomPresser1 = Math.floor(Math.random() * 2) + 1;
+        const dropdown2 = cy.get('#LXSQGQvSQGf');
+
+        for (let i = 0; i < randomPresser1; i++) {
+          dropdown2.type('{downarrow}');
+        }
+
+        dropdown2.type('{enter}');
+
+         const location = [
+          "Orthopedic ward",
+          "General surgery ward"
+         ]
+
+
+        const randomPresser3 = Math.floor(Math.random() * 2) + 1;
+        const dropdown3 = cy.get('#JwuMPx8ZPLD');
+
+        for (let i = 0; i < randomPress; i++) {
+          dropdown3.type('{downarrow}');
+        }
+
+        dropdown3.type('{enter}');
+
+      cy.get('.ant-btn').click().wait(500)
+      cy.get(':nth-child(7) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').click()
+      cy.get(':nth-child(7) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').click().wait(300)
+      cy.get('.ant-radio-input').eq(0).click().check();
+      cy.get('input[placeholder="Blood glucose levels (Mmol/L)"]').type('70ml')
+      cy.get('input[placeholder="Intervention to correct blood sugar, if any"]').type('70ml')
+      cy.get('.ant-radio-input').eq(3).click().check();
+      cy.get('.ant-radio-input').eq(4).click().check();
+
+      // const hairRemoval = [
+      //   "No",
+      //   "Clippers",
+      //   "Razor"
+      //  ]
+
+
+      // const randomPresser4 = Math.floor(Math.random() * 3) + 1;
+      // const dropdown4 = cy.get('input[placeholder="Hair removal"]');
+
+      // for (let i = 0; i < randomPresser4; i++) {
+      //   dropdown4.type('{downarrow}');
+      // }
+
+      // dropdown4.type('{enter}');
+
+
+      cy.get('.ant-radio-input').eq(6).click().check();
+      cy.get('.ant-radio-input').eq(8).click().check();
+      cy.get('.ant-radio-input').eq(10).click().check();
+      cy.get('.ant-radio-input').eq(12).click().check();
+      cy.get('.ant-radio-input').eq(14).click().check();
+      cy.get('.ant-radio-input').eq(16).click().check();
+
+      cy.get('#APa12HlIW93 > :nth-child(1) > .ant-radio > .ant-radio-input').check()
+      cy.get('#R702RDI0tN4 > :nth-child(1) > .ant-radio > .ant-radio-input').check()
+      cy.get('#pNJpQOp13TO').click().focused().type('Clippers{enter}')
+      cy.get('#B5DNAjWwqPR').click().focused().get('.ant-picker-header-prev-btn').click().get('[title="2023-10-21"]').click()
+      cy.get('#x6694BaUWAf > :nth-child(1) > .ant-radio > .ant-radio-input').check()
+      cy.get('#HPXcpqKqO2l > :nth-child(1) > .ant-radio > .ant-radio-input').check()
+      cy.get('#NmF0oDbjTyN > :nth-child(2) > .ant-radio > .ant-radio-input').check()
+      cy.get('#EIIPKnALf0H > :nth-child(1) > .ant-radio > .ant-radio-input').check()
+      cy.get('#izLgahalz9Q').click().focused().type('Skin graft{enter}')
+      cy.get('#gydMsXA6Ia0 > :nth-child(1) > .ant-radio > .ant-radio-input').check()
+      cy.get('#WgtOPrLLQh1').type('skin{enter}')
+      cy.get('#ai7zInO9MSH > :nth-child(1) > .ant-radio > .ant-radio-input').check()
+      cy.get('#FUMk5Tm7Nqd > :nth-child(1) > .ant-radio > .ant-radio-input').check()
+      cy.get(':nth-child(6) > .form-0-2-46 > .ant-form-item > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #HmKL3kmI0nA').click().focused().type('Hypertension{enter}')
+      cy.get(':nth-child(11) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #n78ALDPo3ym').click().focused().get('[title=">2 min - 3 min"] > .ant-select-item-option-content').click()
+      cy.get(':nth-child(12) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #n78ALDPo3ym').click().focused().type('')
+      cy.get(':nth-child(16) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #TMfPGD5aJHQ').click().focused().type('Cefazolin')
+      cy.get(':nth-child(17) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #TMfPGD5aJHQ').click().type('Cefazolin{enter}')
+      cy.get(':nth-child(21) > .form-0-2-46 > :nth-child(2) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #OEvr8vNqbQg').type('Prophylaxis{enter}')
+      cy.get('.submitButton-0-2-47').click()
 
         cy.get(':nth-child(8) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').click()
         cy.get('#VJe5oPR17wE').click().focused().get('.ant-picker-header-prev-btn').click().get('[title="2023-10-24"]').click()
@@ -94,8 +207,8 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         cy.get('#BW86oe5G4i7').click().focused().type('Organ{enter}')
         cy.get(':nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector').click().focused().type('Heat{enter}')
         //cy.get('#b0pxjhsJFEq_0_xS5SzaMlRUu > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        //cy.get('#NTtKqGBg1ZQ > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-        //cy.get('#H28GHift6tu').click().focused().type('Heat{enter}')
+        cy.get('#NTtKqGBg1ZQ > :nth-child(1) > .ant-radio > .ant-radio-input').check()
+        cy.get('#H28GHift6tu').click().focused().type('Heat{enter}')
         cy.get('#xS5SzaMlRUu > :nth-child(1) > .ant-radio > .ant-radio-input').check()
         cy.get('.submitButton-0-2-47 > span').click()
 

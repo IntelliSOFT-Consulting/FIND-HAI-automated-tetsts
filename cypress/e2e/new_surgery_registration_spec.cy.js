@@ -139,58 +139,88 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         const randomPresser3 = Math.floor(Math.random() * 2) + 1;
         const dropdown3 = cy.get('#JwuMPx8ZPLD');
 
-        for (let i = 0; i < randomPress; i++) {
+        for (let i = 0; i < randomPresser3; i++) {
           dropdown3.type('{downarrow}');
         }
 
         dropdown3.type('{enter}');
 
       cy.get('.ant-btn').click().wait(500)
-      cy.get(':nth-child(7) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').click()
       cy.get(':nth-child(7) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').click().wait(300)
       cy.get('.ant-radio-input').eq(0).click().check();
       cy.get('input[placeholder="Blood glucose levels (Mmol/L)"]').type('70ml')
-      cy.get('input[placeholder="Intervention to correct blood sugar, if any"]').type('70ml')
+      cy.get('input[placeholder="Intervention to correct blood sugar, if any"]').type('Insulin')
       cy.get('.ant-radio-input').eq(3).click().check();
       cy.get('.ant-radio-input').eq(4).click().check();
 
-      // const hairRemoval = [
-      //   "No",
-      //   "Clippers",
-      //   "Razor"
-      //  ]
+       const hairRemoval = [
+         "No",
+         "Clippers",
+         "Razor"
+        ]
 
 
-      // const randomPresser4 = Math.floor(Math.random() * 3) + 1;
-      // const dropdown4 = cy.get('input[placeholder="Hair removal"]');
+       const randomPresser4 = Math.floor(Math.random() * 3) + 1;
+      const dropdown4 = cy.get('#oRsBE7WgULf_pNJpQOp13TO');
 
-      // for (let i = 0; i < randomPresser4; i++) {
-      //   dropdown4.type('{downarrow}');
-      // }
+       for (let i = 0; i < randomPresser4; i++) {
+         dropdown4.type('{downarrow}');
+       }
 
-      // dropdown4.type('{enter}');
+       dropdown4.type('{enter}');
 
 
-      cy.get('.ant-radio-input').eq(6).click().check();
-      cy.get('.ant-radio-input').eq(8).click().check();
-      cy.get('.ant-radio-input').eq(10).click().check();
-      cy.get('.ant-radio-input').eq(12).click().check();
-      cy.get('.ant-radio-input').eq(14).click().check();
-      cy.get('.ant-radio-input').eq(16).click().check();
+      cy.get('.ant-radio-input').eq(7).click().check();
+      cy.get('.ant-radio-input').eq(9).click().check();
+      cy.get('.ant-radio-input').eq(11).click().check();
+      cy.get('.ant-radio-input').eq(13).click().check();
+      cy.get('.ant-radio-input').eq(15).click().check();
 
-      cy.get('#APa12HlIW93 > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-      cy.get('#R702RDI0tN4 > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-      cy.get('#pNJpQOp13TO').click().focused().type('Clippers{enter}')
-      cy.get('#B5DNAjWwqPR').click().focused().get('.ant-picker-header-prev-btn').click().get('[title="2023-10-21"]').click()
-      cy.get('#x6694BaUWAf > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-      cy.get('#HPXcpqKqO2l > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-      cy.get('#NmF0oDbjTyN > :nth-child(2) > .ant-radio > .ant-radio-input').check()
-      cy.get('#EIIPKnALf0H > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-      cy.get('#izLgahalz9Q').click().focused().type('Skin graft{enter}')
-      cy.get('#gydMsXA6Ia0 > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-      cy.get('#WgtOPrLLQh1').type('skin{enter}')
-      cy.get('#ai7zInO9MSH > :nth-child(1) > .ant-radio > .ant-radio-input').check()
-      cy.get('#FUMk5Tm7Nqd > :nth-child(1) > .ant-radio > .ant-radio-input').check()
+      const implantUsed = [
+        "No",
+        "Metal(Ortho)",
+        "Skin graft",
+        "Mesh",
+        "Other"
+       ]
+
+
+      const randomPresser5 = Math.floor(Math.random() * 5) + 1;
+      const dropdown5 = cy.get('input[type="search"]');
+
+      for (let i = 0; i < randomPresser5; i++) {
+        dropdown5.type('{downarrow}');
+      }
+
+      dropdown5.type('{enter}');
+
+      cy.get('.ant-radio-input').eq(17).click().check();
+      cy.get('.ant-radio-input').eq(19).click().check();
+      cy.get('.ant-radio-input').eq(21).click().check();
+
+
+      const riskFactors = [
+        "Healthy Person",
+        "Hypertension",
+        "Diabetes",
+        "COPD",
+        "Major Trauma",
+        "Age > 75 yrs",
+        "Immunocompromised",
+        "Multiple fractures"
+       ]
+
+
+      const randomPresser6 = Math.floor(Math.random() * 8) + 1;
+      const dropdown6 = cy.get('input[type="search"]');
+
+      for (let i = 0; i < randomPresser6; i++) {
+        dropdown6.type('{downarrow}');
+      }
+
+      dropdown6.type('{enter}');
+
+
       cy.get(':nth-child(6) > .form-0-2-46 > .ant-form-item > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #HmKL3kmI0nA').click().focused().type('Hypertension{enter}')
       cy.get(':nth-child(11) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #n78ALDPo3ym').click().focused().get('[title=">2 min - 3 min"] > .ant-select-item-option-content').click()
       cy.get(':nth-child(12) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #n78ALDPo3ym').click().focused().type('')

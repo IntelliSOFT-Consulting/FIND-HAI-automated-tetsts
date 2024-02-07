@@ -21,7 +21,7 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
       });
     cy.get('#submit').click()
     cy.get('[data-test="headerbar-apps-icon"]').click()
-    cy.contains("FIND HAI").click()//.wait(12000)
+    cy.contains("HAI Surveillance App").click()
     cy.contains('SURGERIES').click()
        }) 
 
@@ -36,7 +36,7 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
           });
         cy.get('#submit').click()
         cy.get('[data-test="headerbar-apps-icon"]').click()
-        cy.contains("FIND HAI").click().wait(8000)
+        cy.contains("HAI Surveillance App").click().wait(21000)
         cy.contains('SURGERIES').click()
         cy.contains("Register new surgery").click()
         const PatID = () => Cypress._.random(0, 1e6);
@@ -65,7 +65,7 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
       }
 
-      const randomBirthday = randomDate(new Date(1940, 0, 1), new Date(2023, 0, 1));
+      const randomBirthday = randomDate(new Date(1940, 0, 1), new Date(2024, 0, 1));
       const formattedBirthday = randomBirthday.toISOString().split('T')[0];
 
 
@@ -75,7 +75,7 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
       }
 
-      const randomAdmission = randomDate(new Date(2023, 0, 1), new Date(2023, 10, 31));
+      const randomAdmission = randomDate(new Date(2024, 0, 1), new Date(2024, 0, 9));
       const formattedAdmission = randomAdmission.toISOString().split('T')[0];
 
       cy.get('#dtgA3a71Htu').click().type(formattedAdmission).type('{enter}');
@@ -84,7 +84,7 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
       }
 
-      const randomSurgeryDate = randomDate(new Date(2023, 10, 1), new Date(2023, 11, 31));
+      const randomSurgeryDate = randomDate(new Date(2024, 0, 1), new Date(2024, 0, 31));
       const formattedSurgery = randomSurgeryDate.toISOString().split('T')[0];
 
       cy.get('#Ogx5pUkCK7Y').click().type(formattedSurgery).type('{enter}');
@@ -146,10 +146,10 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         dropdown3.type('{enter}');
 
       cy.get('.ant-btn').click().wait(500)
-      cy.get(':nth-child(7) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').click().wait(300)
+      cy.get(':nth-child(5) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').click().wait(300)
       cy.get('.ant-radio-input').eq(0).click().check();
-      cy.get('input[placeholder="Blood glucose levels (Mmol/L)"]').type('70ml')
-      cy.get('input[placeholder="Intervention to correct blood sugar, if any"]').type('Insulin')
+      cy.get('input[placeholder="Enter Blood glucose levels (Mmol/L)"]').type('70ml')
+      cy.get('input[placeholder="Enter Intervention to correct blood sugar, if any"]').type('Insulin')
       cy.get('.ant-radio-input').eq(3).click().check();
       cy.get('.ant-radio-input').eq(4).click().check();
 
@@ -160,8 +160,8 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         ]
 
 
-       const randomPresser4 = Math.floor(Math.random() * 3) + 1;
-      const dropdown4 = cy.get('#oRsBE7WgULf_pNJpQOp13TO');
+      const randomPresser4 = Math.floor(Math.random() * 3) + 1;
+      const dropdown4 = cy.get('#pNJpQOp13TO');
 
        for (let i = 0; i < randomPresser4; i++) {
          dropdown4.type('{downarrow}');
@@ -169,6 +169,9 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
 
        dropdown4.type('{enter}');
 
+       const hairRemovalDate = randomDate(new Date(2023, 0, 1), new Date(2024, 0, 31));
+       const randomHairRemovalDate = hairRemovalDate.toISOString().split('T')[0];
+       
 
       cy.get('.ant-radio-input').eq(7).click().check();
       cy.get('.ant-radio-input').eq(9).click().check();
@@ -186,7 +189,7 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
 
 
       const randomPresser5 = Math.floor(Math.random() * 5) + 1;
-      const dropdown5 = cy.get('input[type="search"]');
+      const dropdown5 = cy.get('#izLgahalz9Q');
 
       for (let i = 0; i < randomPresser5; i++) {
         dropdown5.type('{downarrow}');
@@ -199,6 +202,7 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
       cy.get('.ant-radio-input').eq(21).click().check();
 
 
+
       const riskFactors = [
         "Healthy Person",
         "Hypertension",
@@ -207,30 +211,118 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         "Major Trauma",
         "Age > 75 yrs",
         "Immunocompromised",
-        "Multiple fractures"
+        "Multiple fractures",
+        "Heart Failure",
+        "Kidney Failure",
        ]
 
 
-      const randomPresser6 = Math.floor(Math.random() * 8) + 1;
-      const dropdown6 = cy.get('input[type="search"]');
-
-      for (let i = 0; i < randomPresser6; i++) {
-        dropdown6.type('{downarrow}');
+      const randomPresser7 = Math.floor(Math.random()*10)+1;
+      const dropdown7=cy.get('#SKnaWQXsTJb_0_HmKL3kmI0nA');
+      for(let j=0;j<randomPresser7;j++){
+        dropdown7.type('{downarrow}')
       }
+      dropdown7.type('{enter}')
 
-      dropdown6.type('{enter}');
+
+      const timeHandwashing = [
+        "< 1 minute",
+        "1 minute-2 minutes",
+        "<2 min-3 min",
+        ">3 min-4 min",
+        ">4 min- 4 min",
+        "> 5min"
+       ]
 
 
-      cy.get(':nth-child(6) > .form-0-2-46 > .ant-form-item > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #HmKL3kmI0nA').click().focused().type('Hypertension{enter}')
-      cy.get(':nth-child(11) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #n78ALDPo3ym').click().focused().get('[title=">2 min - 3 min"] > .ant-select-item-option-content').click()
-      cy.get(':nth-child(12) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #n78ALDPo3ym').click().focused().type('')
-      cy.get(':nth-child(16) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #TMfPGD5aJHQ').click().focused().type('Cefazolin')
-      cy.get(':nth-child(17) > .form-0-2-46 > :nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #TMfPGD5aJHQ').click().type('Cefazolin{enter}')
-      cy.get(':nth-child(21) > .form-0-2-46 > :nth-child(2) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-search > #OEvr8vNqbQg').type('Prophylaxis{enter}')
-      cy.get('.submitButton-0-2-47').click()
+      const randomPresser6 = Math.floor(Math.random()*6)+1;
+      const dropdown6=cy.get('#oMsAMBpY0yF_0_n78ALDPo3ym');
+      for(let j=0;j<randomPresser6;j++){
+        dropdown6.type('{downarrow}')
+      }
+      dropdown6.type('{enter}')
+
+      cy.get('.ant-radio-input').eq(23).click().check();
+      cy.get('.ant-radio-input').eq(24).click().check();
+      cy.get('.ant-radio-input').eq(26).click().check();
+      //cy.get('.ant-radio-input').eq(28).click().check();
+
+      const specialistRole = [
+        "Lead Surgeon",
+        "Assitant Surgeon",
+        "Nurse",
+        "Pharmacist",
+        "Pharmaceutical Technologist",
+        "Clinician(Medical Doctor",
+        "Anesthetist/Anesthesiologist",
+        "Medical Laboratory Technician"
+       ]
+
+
+      const randomPresser8 = Math.floor(Math.random()*8)+1;
+      const dropdown8=cy.get('#oMsAMBpY0yF_0_IACyjsBmbHT');
+      for(let k=0;k<randomPresser8;k++){
+        dropdown8.type('{downarrow}')
+      }
+      dropdown8.type('{enter}')
+
+
+
+      const preOperativeAntibiotics = [
+        "Amoxicillin/clavulanic acid",
+        "Cefazolin",
+        "Cefepime",
+        "Ceftriaxone",
+        "Cefuroxime",
+        "Ciprofloxacin",
+        "Cloxacillin",
+        "Gentamicin",
+        "Metronidazole",
+        "None given",
+        "Other(specify)",
+        "Penicillin",
+        "Vancomycin"
+       ]
+
+
+      const randomPresser9 = Math.floor(Math.random()*13)+1;
+      const dropdown9 = cy.get('#F4cIWeUiveB_0_TMfPGD5aJHQ');
+      for(let i=0;i<randomPresser9;i++){
+        dropdown9.type('{downarrow}')
+      }
+      dropdown9.type('{enter}')
+
+
+
+
+      const postOperativeAntibiotics = [
+        "Amoxicillin/clavulanic acid",
+        "Cefazolin",
+        "Cefepime",
+        "Ceftriaxone",
+        "Cefuroxime",
+        "Ciprofloxacin",
+        "Cloxacillin",
+        "Gentamicin",
+        "Metronidazole",
+        "None given",
+        "Other(specify)",
+        "Penicillin",
+        "Vancomycin"
+       ]
+
+
+      const randomPresser10 = Math.floor(Math.random()*13)+1;
+      const dropdown10 = cy.get('#IVOiUItGqUk_0_vTPl5yUNbI3');
+      for(let i=0;i<randomPresser10;i++){
+        dropdown10.type('{downarrow}')
+      }
+      dropdown10.type('{enter}')
+
+      cy.get('.submitButton-0-2-50 > span').click()
 
         cy.get(':nth-child(8) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').click()
-        cy.get('#VJe5oPR17wE').click().focused().get('.ant-picker-header-prev-btn').click().get('[title="2023-10-24"]').click()
+        cy.get('#VJe5oPR17wE').click().focused().get('.ant-picker-header-prev-btn').click().get('[title="2024-01-01"]').click()
         cy.get('#fkxHVloTLwR > :nth-child(1) > .ant-radio > .ant-radio-input').check()
         cy.get('#RKdbQFkgpOC').click().focused().get(':nth-child(5) > .ant-picker-dropdown > .ant-picker-panel-container > .ant-picker-panel-layout > .ant-picker-panel > .ant-picker-date-panel > .ant-picker-header > .ant-picker-header-prev-btn').click().get(':nth-child(5) > .ant-picker-dropdown > .ant-picker-panel-container > .ant-picker-panel-layout > .ant-picker-panel > .ant-picker-date-panel > .ant-picker-body > .ant-picker-content > tbody > :nth-child(4) > [title="2023-10-26"]').click()
         cy.get('#kKbAdaCCCM7 > :nth-child(1) > .ant-radio > .ant-radio-input').check()

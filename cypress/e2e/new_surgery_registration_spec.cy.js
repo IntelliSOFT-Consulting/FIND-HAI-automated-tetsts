@@ -20,6 +20,7 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
           return false;
       });
     cy.get('#submit').click()
+    cy.wait(2000)
     cy.get('[data-test="headerbar-apps-icon"]').click()
     cy.contains("HAI Surveillance App").click()
     cy.contains('SURGERIES').click()
@@ -35,6 +36,7 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
               return false;
           });
         cy.get('#submit').click()
+        cy.wait(2000)
         cy.get('[data-test="headerbar-apps-icon"]').click()
         cy.contains("HAI Surveillance App").click().wait(21000)
         cy.contains('SURGERIES').click()

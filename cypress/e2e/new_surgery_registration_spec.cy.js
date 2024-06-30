@@ -4,39 +4,24 @@ const firstName = faker.name.firstName();
 const middleName = faker.name.middleName(); 
 const familyName = faker.name.lastName(); 
 const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
- describe("Acccess the homepage menu of the platform",()=>{
-  beforeEach(()=>{
-    cy.baseurl() 
-   
+context('Actions', () => {
+  before(() => {
+   // cy.session('login', ()=>{
+      cy.baseurl();
+      cy.login();
   })
+//})
 
-  it("test1 - tests accessing surgeries",()=>{
-    //cy.login();
-    cy.get('#j_username').type('admin').should("have.value","admin")
-    cy.get('#j_password').type('district').should("have.value","district")
-      
-          cy.once("fail", (err) =>
-      {
-          return false;
-      });
-    cy.get('#submit').click()
+it('.type() - Register a Surgery', () => {
+    cy.wait(2000)
     cy.get('[data-test="headerbar-apps-icon"]').click()
     cy.contains("HAI Surveillance App").click()
-    cy.contains('SURGERIES').click()
-       }) 
-
-  it.only("test2 - tests registration of a new surgery currently",()=>{
-        //cy.login();
-        cy.get('#j_username').type('admin').should("have.value","admin")
-        cy.get('#j_password').type('district').should("have.value","district")
-          
-              cy.once("fail", (err) =>
-          {
-              return false;
-          });
-        cy.get('#submit').click()
+    cy.wait(7000)
+    cy.get('[href="#/surgeries"]').click()
+  
+        cy.wait(2000)
         cy.get('[data-test="headerbar-apps-icon"]').click()
-        cy.contains("HAI Surveillance App").click().wait(21000)
+        cy.contains("HAI Surveillance App").click().wait(2000)
         cy.contains('SURGERIES').click()
         cy.contains("Register new surgery").click()
         const PatID = () => Cypress._.random(0, 1e6);
@@ -58,54 +43,52 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
               dropdown1.type('{downarrow}');
             }
 
-            dropdown1.type('{enter}');
+            dropdown1.type('{enter}')
 
         
-        function randomDate(start, end) {
-        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-      }
-
-      const randomBirthday = randomDate(new Date(1940, 0, 1), new Date(2024, 0, 1));
-      const formattedBirthday = randomBirthday.toISOString().split('T')[0];
-
-
-      cy.get('#Y4bglcLiAGx').click().type(formattedBirthday).type('{enter}');
-
-      function admissionDate(start, end) {
-        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-      }
-
-      const randomAdmission = randomDate(new Date(2024, 0, 1), new Date(2024, 0, 9));
-      const formattedAdmission = randomAdmission.toISOString().split('T')[0];
-
-      cy.get('#dtgA3a71Htu').click().type(formattedAdmission).type('{enter}');
-
-      function surgeryDate(start, end) {
-        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-      }
-
-      const randomSurgeryDate = randomDate(new Date(2024, 0, 1), new Date(2024, 0, 31));
-      const formattedSurgery = randomSurgeryDate.toISOString().split('T')[0];
-
-      cy.get('#Ogx5pUkCK7Y').click().type(formattedSurgery).type('{enter}');
-
-         const surgicalProcedure= [
-           "ACL reconstruction surgery",
-           "Ankle repair",
-           "Hip replacement",
-           "Joint arthroscopy",
-           "Joint fusion surgery",
-           "Knee replacement",
-           "ORIF",
-           "Shoulder replacement surgery",
-           "Spinal surgery",
-           "Other(specify)"
-         ];
-         const randomProcedure = Math.floor(Math.random() * surgicalProcedure.length);
-         const randomSurgery = surgicalProcedure[randomProcedure];
+            const dateOfBirth = [ //date of birth
+              "1990-06-15",
+              "1956-06-16",
+              "2020-06-17",
+              "2005-06-18",
+              "2015-06-19",
+              "2022-06-25"      
+            ]
+            const randomDOB = dateOfBirth[Math.floor(Math.random() * dateOfBirth.length)];
+            cy.get('#Y4bglcLiAGx')
+                  .click()
+                 .type(randomDOB)
+                  .type("{enter}")
 
 
-            const randomPresser = Math.floor(Math.random() * 10) + 1;
+               const  admission = [   //date of admission
+                "2024-06-05",
+                "2024-06-10",
+                "2024-06-01"  
+               ]    
+                const randomadmin = admission[Math.floor(Math.random() * admission.length)];
+                cy.get('#dtgA3a71Htu')
+                      .click()
+                      .type(randomadmin)
+                      .type("{enter}")
+
+                         
+          const surgeryDate = [   //date of surgery
+            "2024-06-15",
+            "2024-06-16",
+            "2024-06-17",
+            "2024-06-18",
+            "2024-06-19",
+            "2024-06-25"
+          ]
+          const randomSurgeryDate = surgeryDate[Math.floor(Math.random() * surgeryDate.length)];
+          cy.get('#Ogx5pUkCK7Y')
+                .click()
+              .type(randomSurgeryDate)
+                .type("{enter}");
+
+                
+            const randomPresser = Math.floor(Math.random() * 10) + 1; //surgery procedure
             const dropdown = cy.get('#u2mZ7WXhjHt');
 
             for (let i = 0; i < randomPresser; i++) {
@@ -114,26 +97,13 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
 
             dropdown.type('{enter}');
 
-
-         const scheduling = [
-          "Elective",
-          "Emergency"
-         ]
-
-
         const randomPresser1 = Math.floor(Math.random() * 2) + 1;
         const dropdown2 = cy.get('#LXSQGQvSQGf');
 
         for (let i = 0; i < randomPresser1; i++) {
           dropdown2.type('{downarrow}');
         }
-
         dropdown2.type('{enter}');
-
-         const location = [
-          "Orthopedic ward",
-          "General surgery ward"
-         ]
 
 
         const randomPresser3 = Math.floor(Math.random() * 2) + 1;
@@ -142,99 +112,43 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         for (let i = 0; i < randomPresser3; i++) {
           dropdown3.type('{downarrow}');
         }
-
         dropdown3.type('{enter}');
+      cy.contains('Submit').click()//Submit Patient & Surgery details
+      cy.wait(10000) 
 
-      cy.get('.ant-btn').click().wait(500)
-      cy.get(':nth-child(5) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').click().wait(300)
+
+      cy.contains('Add').click().wait(3000) //peri-operative procedure
+     // cy.get(':nth-child(1) > .accordion-0-2-18 > .content-0-2-23 > [style="overflow: hidden;"] > .relative-0-2-59 > .add-0-2-58 > :nth-child(1) > .ant-form-item > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-overflow').click().type('{downarrow}{downarrow}').type('{enter}')
       cy.get('.ant-radio-input').eq(0).click().check();
       cy.get('input[placeholder="Enter Blood glucose levels (Mmol/L)"]').type('70ml')
       cy.get('input[placeholder="Enter Intervention to correct blood sugar, if any"]').type('Insulin')
       cy.get('.ant-radio-input').eq(3).click().check();
       cy.get('.ant-radio-input').eq(4).click().check();
 
-       const hairRemoval = [
-         "No",
-         "Clippers",
-         "Razor"
-        ]
-
-
-      const randomPresser4 = Math.floor(Math.random() * 3) + 1;
-      const dropdown4 = cy.get('#pNJpQOp13TO');
-
-       for (let i = 0; i < randomPresser4; i++) {
-         dropdown4.type('{downarrow}');
-       }
-
-       dropdown4.type('{enter}');
-
-       const hairRemovalDate = randomDate(new Date(2023, 0, 1), new Date(2024, 0, 31));
-       const randomHairRemovalDate = hairRemovalDate.toISOString().split('T')[0];
-       
-
-      cy.get('.ant-radio-input').eq(7).click().check();
-      cy.get('.ant-radio-input').eq(9).click().check();
-      cy.get('.ant-radio-input').eq(11).click().check();
-      cy.get('.ant-radio-input').eq(13).click().check();
-      cy.get('.ant-radio-input').eq(15).click().check();
-
-      const implantUsed = [
+      cy.get('#eV0Cs6Wdl8w_0_vWjnpz7L6tT').click().wait(500).type('{enter}')//surgical skin preparation
+      cy.get('#eV0Cs6Wdl8w_0_L14g5KntcbA > :nth-child(1) > .ant-radio > .ant-radio-input').click()
+      const implantUsed = [ //implant used
         "No",
         "Metal(Ortho)",
         "Skin graft",
         "Mesh",
         "Other"
        ]
+       const randomImplant = implantUsed[Math.floor(Math.random() * implantUsed.length)];
+       cy.get('#eV0Cs6Wdl8w_0_izLgahalz9Q')
+             .click()
+           .type(randomImplant)
+             .type("{enter}");
+
+             cy.get('div.ant-radio-group').each(($radioGroup) => {
+              cy.wrap($radioGroup).find('label:contains("Yes")').click(); 
+             })  
+             
+      cy.get(':nth-child(2) > .accordion-0-2-18 > .content-0-2-23 > [style="overflow: hidden;"] > :nth-child(2) > .ant-btn').click()
 
 
-      const randomPresser5 = Math.floor(Math.random() * 5) + 1;
-      const dropdown5 = cy.get('#izLgahalz9Q');
-
-      for (let i = 0; i < randomPresser5; i++) {
-        dropdown5.type('{downarrow}');
-      }
-
-      dropdown5.type('{enter}');
-
-      cy.get('.ant-radio-input').eq(17).click().check();
-      cy.get('.ant-radio-input').eq(19).click().check();
-      cy.get('.ant-radio-input').eq(21).click().check();
-
-
-
-      const riskFactors = [
-        "Healthy Person",
-        "Hypertension",
-        "Diabetes",
-        "COPD",
-        "Major Trauma",
-        "Age > 75 yrs",
-        "Immunocompromised",
-        "Multiple fractures",
-        "Heart Failure",
-        "Kidney Failure",
-       ]
-
-
-      const randomPresser7 = Math.floor(Math.random()*10)+1;
-      const dropdown7=cy.get('#SKnaWQXsTJb_0_HmKL3kmI0nA');
-      for(let j=0;j<randomPresser7;j++){
-        dropdown7.type('{downarrow}')
-      }
-      dropdown7.type('{enter}')
-
-
-      const timeHandwashing = [
-        "< 1 minute",
-        "1 minute-2 minutes",
-        "<2 min-3 min",
-        ">3 min-4 min",
-        ">4 min- 4 min",
-        "> 5min"
-       ]
-
-
+/*Surgical Hand Preparation*/
+        cy.get(':nth-child(3) > .accordion-0-2-18 > .content-0-2-23 > [style="overflow: hidden;"] > .formList-0-2-56 > .ant-btn').click()
       const randomPresser6 = Math.floor(Math.random()*6)+1;
       const dropdown6=cy.get('#oMsAMBpY0yF_0_n78ALDPo3ym');
       for(let j=0;j<randomPresser6;j++){
@@ -242,10 +156,7 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
       }
       dropdown6.type('{enter}')
 
-      cy.get('.ant-radio-input').eq(23).click().check();
-      cy.get('.ant-radio-input').eq(24).click().check();
-      cy.get('.ant-radio-input').eq(26).click().check();
-      //cy.get('.ant-radio-input').eq(28).click().check();
+      cy.get('#oMsAMBpY0yF_0_Sd6AbnqvWAn').click().type('{enter}')
 
       const specialistRole = [
         "Lead Surgeon",
@@ -257,69 +168,39 @@ const emailAddress = familyName.toLowerCase() + firstName.toLowerCase()
         "Anesthetist/Anesthesiologist",
         "Medical Laboratory Technician"
        ]
-
-
-      const randomPresser8 = Math.floor(Math.random()*8)+1;
-      const dropdown8=cy.get('#oMsAMBpY0yF_0_IACyjsBmbHT');
-      for(let k=0;k<randomPresser8;k++){
-        dropdown8.type('{downarrow}')
-      }
-      dropdown8.type('{enter}')
-
-
-
-      const preOperativeAntibiotics = [
-        "Amoxicillin/clavulanic acid",
-        "Cefazolin",
-        "Cefepime",
-        "Ceftriaxone",
-        "Cefuroxime",
-        "Ciprofloxacin",
-        "Cloxacillin",
-        "Gentamicin",
-        "Metronidazole",
-        "None given",
-        "Other(specify)",
-        "Penicillin",
-        "Vancomycin"
-       ]
+       const randomRole = specialistRole[Math.floor(Math.random() * specialistRole.length)];
+       cy.get('#oMsAMBpY0yF_0_IACyjsBmbHT')
+             .click()
+            .type(randomRole)
+             .type("{enter}");
+             cy.get(':nth-child(3) > .accordion-0-2-18 > .content-0-2-23 > [style="overflow: hidden;"] > :nth-child(2) > .ant-btn').click()
 
 
       const randomPresser9 = Math.floor(Math.random()*13)+1;
       const dropdown9 = cy.get('#F4cIWeUiveB_0_TMfPGD5aJHQ');
       for(let i=0;i<randomPresser9;i++){
-        dropdown9.type('{downarrow}')
+        dropdown9.type('{downarrow}', {force: true})
+
       }
       dropdown9.type('{enter}')
+      cy.get('#F4cIWeUiveB_0_TMfPGD5aJHQ').type('{esc}');
+
+      cy.get(':nth-child(4) > .accordion-0-2-18 > .content-0-2-23 > [style="overflow: hidden;"] > :nth-child(2) > .ant-btn').click()
 
 
 
-
-      const postOperativeAntibiotics = [
-        "Amoxicillin/clavulanic acid",
-        "Cefazolin",
-        "Cefepime",
-        "Ceftriaxone",
-        "Cefuroxime",
-        "Ciprofloxacin",
-        "Cloxacillin",
-        "Gentamicin",
-        "Metronidazole",
-        "None given",
-        "Other(specify)",
-        "Penicillin",
-        "Vancomycin"
-       ]
-
-
+      cy.get(':nth-child(5) > .accordion-0-2-18 > .content-0-2-23 > [style="overflow: hidden;"] > .formList-0-2-56 > .ant-btn').click()
+ 
       const randomPresser10 = Math.floor(Math.random()*13)+1;
       const dropdown10 = cy.get('#IVOiUItGqUk_0_vTPl5yUNbI3');
       for(let i=0;i<randomPresser10;i++){
         dropdown10.type('{downarrow}')
       }
-      dropdown10.type('{enter}')
+      dropdown10.type('{enter}').wait(500)
+      cy.get('#IVOiUItGqUk_0_vTPl5yUNbI3').type('{esc}');
+      cy.get('#IVOiUItGqUk_0_OEvr8vNqbQg').click().type('{enter}')
+      cy.get(':nth-child(5) > .accordion-0-2-18 > .content-0-2-23 > [style="overflow: hidden;"] > :nth-child(2) > .ant-btn').click()
 
-      cy.get('.submitButton-0-2-50 > span').click()
 
         cy.get(':nth-child(8) > .section-0-2-18 > .title-0-2-19 > :nth-child(1) > .header-0-2-24 > div > .ant-btn').click()
         cy.get('#VJe5oPR17wE').click().focused().get('.ant-picker-header-prev-btn').click().get('[title="2024-01-01"]').click()
